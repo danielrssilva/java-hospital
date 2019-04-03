@@ -1,20 +1,11 @@
 package ClassesDao;
 
-import java.sql.Connection;
-import java.sql.Date;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import JavaBeans.*;
-import javax.swing.JOptionPane;
+import JavaBeans.Medico;
 import conexao.ConnectionFactory;
 
-public class MedicoDao{
+import java.sql.*;
+
+public class MedicoDao {
     private Connection connection;
 
     public MedicoDao() {

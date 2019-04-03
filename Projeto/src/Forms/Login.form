@@ -58,7 +58,9 @@
             <preferred-size width="150" height="30"/>
           </grid>
         </constraints>
-        <properties/>
+        <properties>
+          <text value=""/>
+        </properties>
       </component>
       <component id="53cd9" class="javax.swing.JButton" binding="loginButton" default-binding="true">
         <constraints>
