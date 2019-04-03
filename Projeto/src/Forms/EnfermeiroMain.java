@@ -11,13 +11,14 @@ public class EnfermeiroMain {
 
     public EnfermeiroMain() {
         sairButton.addActionListener(e -> {
-            System.exit(0);
+            this.getMainFrame().dispose();
+            Login login = new Login();
+            login.montarFrame();
         });
-        diagnosticarPacienteButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-            }
+        diagnosticarPacienteButton.addActionListener(e -> {
+            this.getMainFrame().dispose();
+            EnfermeiroDiagnostico diagnostico = new EnfermeiroDiagnostico();
+            diagnostico.montarFrame();
         });
     }
     public JFrame montarFrame(){
@@ -27,5 +28,9 @@ public class EnfermeiroMain {
         frame.pack();
         frame.setVisible(true);
         return frame;
+    }
+    private JFrame getMainFrame()
+    {
+        return (JFrame) SwingUtilities.getWindowAncestor( this.EnfermeiroMainPanel);
     }
 }

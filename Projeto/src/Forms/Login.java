@@ -18,6 +18,17 @@ public class Login {
             if(prefixo == "EN"){
                 EnfermeiroMain enfermeiroMain = new EnfermeiroMain();
                 enfermeiroMain.montarFrame();
+                this.getMainFrame().dispose();
+            }else if(prefixo == "MD"){
+                /*EnfermeiroMain enfermeiroMain = new EnfermeiroMain();
+                enfermeiroMain.montarFrame();*/
+                this.getMainFrame().dispose();
+            }else if(prefixo == "AT"){
+                CadastroPaciente cadPaciente = new CadastroPaciente();
+                cadPaciente.montarFrame();
+                this.getMainFrame().dispose();
+            }else{
+                System.out.println("Erro");
             }
         });
     }
@@ -31,5 +42,9 @@ public class Login {
         return frame;
     }
 
+    private JFrame getMainFrame()
+    {
+        return (JFrame) SwingUtilities.getWindowAncestor( this.LoginPanel);
+    }
 
 }

@@ -10,7 +10,7 @@ public class Main {
     public static void main(String[] args) {
         Login login = new Login();
         login.montarFrame();
-
+        /*
         Calendar cali = Calendar.getInstance();
         cali.set(1993, 3, 3);
 
@@ -26,6 +26,6 @@ public class Main {
         md.setHoraInicioTrab("12:00");
         md.setHoraFinalTrab("0:00");
 
-        mDao.adiciona(md);
+        mDao.adiciona(md);*/
     }
 }
