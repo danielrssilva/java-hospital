@@ -17,8 +17,6 @@ public class PacienteDao {
     }
 
     public void setPaciente(Paciente paciente){
-        ResultSet rs = null;
-        int idMax = 0;
         String sql = "insert into paciente"+
                 "(nome, cpf, telefone, idEndereco, idDiagnostico)"+
                 "values(?, ?, ?, ?, ?)";

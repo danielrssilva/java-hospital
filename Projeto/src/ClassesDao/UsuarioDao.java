@@ -1,8 +1,6 @@
 package ClassesDao;
 
-import JavaBeans.Endereco;
 import conexao.ConnectionFactory;
-import org.omg.CORBA.TRANSACTION_UNAVAILABLE;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -16,19 +14,33 @@ public class UsuarioDao {
         this.connection = new ConnectionFactory().getConnection();
     }
 
-    public boolean efetuarLogin(String tabela, String matricula, String senha){
-        String select = "select * from "+tabela+" where matricula = '"+matricula+"' and senha = '"+senha+"'";
+    public int efetuarLogin(String matricula, String senha){
+        int check = 0;
         try{
             ResultSet rs = null;
+
+            String select = "SELECT LEFT(matricula , 2) AS prefixo FROM funcionario WHERE matricula = ? and senha = ?";
             PreparedStatement stmt = connection.prepareStatement(select);
+
+            stmt.setString(1, matricula);
+            stmt.setString(2, senha);
             rs = stmt.executeQuery();
-            while (rs.next()) {
-                System.out.println("Sucesso! Efetuando login...");
-                return true;
+
+            while(rs.next()){
+                if(rs.getString("prefixo").equals("MD")){
+                    check = 1;
+                }else if(rs.getString("prefixo").equals("EN")){
+                    check = 2;
+                }
+                else if(rs.getString("prefixo").equals("AT")){
+                    check = 3;
+                }
             }
+
         }catch(SQLException e){
             throw new RuntimeException(e);
         }
-        return false;
+        return check;
+
     }
 }

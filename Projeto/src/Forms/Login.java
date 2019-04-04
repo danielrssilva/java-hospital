@@ -8,7 +8,6 @@ public class Login {
     private JPanel LoginPanel;
     private JButton sairButton;
     private JPasswordField password;
-    private JComboBox prefix;
     private JTextField matricula;
     private JButton loginButton;
 
@@ -16,30 +15,31 @@ public class Login {
         sairButton.addActionListener(e -> System.exit(0));
         loginButton.addActionListener(e -> {
             UsuarioDao login = new UsuarioDao();
-            String prefixo, id, senha;
-            prefixo = prefix.getSelectedItem().toString();
-            id = prefix.getSelectedItem().toString()+matricula.getText();
-            senha = password.getText();
-            if(prefixo == "EN"){
-                if(login.efetuarLogin("enfermeiro", id, senha)){
-                    EnfermeiroMain enfermeiroMain = new EnfermeiroMain();
-                    enfermeiroMain.montarFrame();
-                    this.getMainFrame().dispose();
-                }
-            }else if(prefixo == "MD"){
-                if(login.efetuarLogin("medico", id, senha)) {
+            String id, senha;
+            id = matricula.getText();
+            senha = new String(password.getPassword());
+            int valorUsuario = login.efetuarLogin(id, senha);
+            switch(valorUsuario){
+                case 0 :
+                    System.out.println("Usuário invalido");
+                    break;
+                case  1 :
                     MedicoMain medicoMain = new MedicoMain();
                     medicoMain.montarFrame();
                     this.getMainFrame().dispose();
-                }
-            }else if(prefixo == "AT"){
-                if(login.efetuarLogin("funcionario", id, senha)) {
+                    break;
+                case 2 :
+                    EnfermeiroMain enfermeiroMain = new EnfermeiroMain();
+                    enfermeiroMain.montarFrame();
+                    this.getMainFrame().dispose();
+                    break;
+                case 3:
                     CadastroPaciente cadPaciente = new CadastroPaciente();
                     cadPaciente.montarFrame();
                     this.getMainFrame().dispose();
-                }
-            }else{
-                System.out.println("Erro");
+                    break;
+                default:
+                    break;
             }
         });
     }

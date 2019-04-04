@@ -21,33 +21,9 @@
           <text value="Sair"/>
         </properties>
       </component>
-      <component id="3dfaf" class="javax.swing.JComboBox" binding="prefix">
-        <constraints>
-          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false">
-            <preferred-size width="-1" height="30"/>
-          </grid>
-        </constraints>
-        <properties>
-          <foreground color="-16777216"/>
-          <model>
-            <item value=""/>
-            <item value="MD"/>
-            <item value="EN"/>
-            <item value="AT"/>
-          </model>
-        </properties>
-      </component>
-      <component id="935a8" class="javax.swing.JLabel">
-        <constraints>
-          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <text value="Prefixo:"/>
-        </properties>
-      </component>
       <component id="dd500" class="javax.swing.JLabel">
         <constraints>
-          <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="0" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <text value="Matricula:"/>
@@ -55,7 +31,7 @@
       </component>
       <component id="c129c" class="javax.swing.JTextField" binding="matricula">
         <constraints>
-          <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+          <grid row="1" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="30"/>
           </grid>
         </constraints>

@@ -27,6 +27,8 @@ public class CadastroPaciente {
     private JTextField numero;
     private JTextField bloco;
     private JTextField cpf;
+    private JTextField textField1;
+    private JTextField textField2;
 
     public CadastroPaciente() {
         sairButton.addActionListener(e -> {
@@ -56,7 +58,7 @@ public class CadastroPaciente {
             PacienteDao pacienteDao = new PacienteDao();
             paciente.setNome(nome.getText());
             paciente.setTelefone(telefone.getText());
-            paciente.setCelular(cpf.getText());
+            paciente.setCpf(cpf.getText());
             paciente.setEndereço(endereco.getId());
             paciente.setDiagnostico(diagnostico.getId());
             pacienteDao.setPaciente(paciente);
