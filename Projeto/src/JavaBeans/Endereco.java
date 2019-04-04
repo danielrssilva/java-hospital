@@ -7,6 +7,15 @@ public class Endereco {
     private String logradouro;
     private String numero;
     private String bloco;
+    private String id;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public String getEstado() {
         return estado;

@@ -3,6 +3,8 @@ package ClassesDao;
 import JavaBeans.Medico;
 import conexao.ConnectionFactory;
 
+import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 import java.sql.*;
 
 public class MedicoDao {
@@ -43,5 +45,26 @@ public class MedicoDao {
         }catch (SQLException e){
             throw new RuntimeException(e);
         }
+    }
+    public JTable montarTabela(JTable table){
+        DefaultTableModel modelo = (DefaultTableModel) table.getModel();
+        modelo.setNumRows(0);
+        String select = "SELECT nome, descricao AS sintomas FROM paciente, diagnostico WHERE paciente.idDiagnostico = diagnostico.idDiagnostico";
+        Object dados[] = new Object[2];
+        ResultSet rs = null;
+        try{
+            PreparedStatement stmt = connection.prepareStatement(select);
+            rs = stmt.executeQuery();
+            while (rs.next()) {
+                dados[0] = rs.getString("nome");
+                dados[1] = rs.getString("sintomas");
+                modelo.addRow(dados);
+                return table;
+            }
+        }catch(SQLException e){
+            System.out.println("Erro! Cheque suas credenciais");
+            throw new RuntimeException(e);
+        }
+        return table;
     }
 }

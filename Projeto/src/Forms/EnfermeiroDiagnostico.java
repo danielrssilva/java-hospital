@@ -1,5 +1,8 @@
 package Forms;
 
+import ClassesDao.DiagnosticoDao;
+import JavaBeans.Diagnostico;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -18,6 +21,7 @@ public class EnfermeiroDiagnostico {
             enfermeiroMain.montarFrame();
         });
         confirmarButton.addActionListener(e -> {
+
             this.getMainFrame().dispose();
             EnfermeiroMain enfermeiroMain = new EnfermeiroMain();
             enfermeiroMain.montarFrame();

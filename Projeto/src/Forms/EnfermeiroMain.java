@@ -8,6 +8,7 @@ public class EnfermeiroMain {
     private JButton diagnosticarPacienteButton;
     private JButton sairButton;
     private JPanel EnfermeiroMainPanel;
+    private JLabel username;
 
     public EnfermeiroMain() {
         sairButton.addActionListener(e -> {

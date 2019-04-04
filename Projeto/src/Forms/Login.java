@@ -1,5 +1,7 @@
 package Forms;
 
+import ClassesDao.UsuarioDao;
+
 import javax.swing.*;
 
 public class Login {
@@ -13,20 +15,29 @@ public class Login {
     public Login() {
         sairButton.addActionListener(e -> System.exit(0));
         loginButton.addActionListener(e -> {
+            UsuarioDao login = new UsuarioDao();
             String prefixo, id, senha;
             prefixo = prefix.getSelectedItem().toString();
+            id = prefix.getSelectedItem().toString()+matricula.getText();
+            senha = password.getText();
             if(prefixo == "EN"){
-                EnfermeiroMain enfermeiroMain = new EnfermeiroMain();
-                enfermeiroMain.montarFrame();
-                this.getMainFrame().dispose();
+                if(login.efetuarLogin("enfermeiro", id, senha)){
+                    EnfermeiroMain enfermeiroMain = new EnfermeiroMain();
+                    enfermeiroMain.montarFrame();
+                    this.getMainFrame().dispose();
+                }
             }else if(prefixo == "MD"){
-                /*EnfermeiroMain enfermeiroMain = new EnfermeiroMain();
-                enfermeiroMain.montarFrame();*/
-                this.getMainFrame().dispose();
+                if(login.efetuarLogin("medico", id, senha)) {
+                    MedicoMain medicoMain = new MedicoMain();
+                    medicoMain.montarFrame();
+                    this.getMainFrame().dispose();
+                }
             }else if(prefixo == "AT"){
-                CadastroPaciente cadPaciente = new CadastroPaciente();
-                cadPaciente.montarFrame();
-                this.getMainFrame().dispose();
+                if(login.efetuarLogin("atendente", id, senha)) {
+                    CadastroPaciente cadPaciente = new CadastroPaciente();
+                    cadPaciente.montarFrame();
+                    this.getMainFrame().dispose();
+                }
             }else{
                 System.out.println("Erro");
             }
