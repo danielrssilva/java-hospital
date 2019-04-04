@@ -10,6 +10,15 @@ public class Paciente {
     private String telefone;
     private String celular;
     private String diagnostico;
+    private String cpf;
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
 
     public int getIdPaciente() {
         return idPaciente;

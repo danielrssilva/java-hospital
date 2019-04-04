@@ -26,6 +26,7 @@ public class CadastroPaciente {
     private JTextField logradouro;
     private JTextField numero;
     private JTextField bloco;
+    private JTextField cpf;
 
     public CadastroPaciente() {
         sairButton.addActionListener(e -> {
@@ -55,6 +56,7 @@ public class CadastroPaciente {
             PacienteDao pacienteDao = new PacienteDao();
             paciente.setNome(nome.getText());
             paciente.setTelefone(telefone.getText());
+            paciente.setCelular(cpf.getText());
             paciente.setEndereço(endereco.getId());
             paciente.setDiagnostico(diagnostico.getId());
             pacienteDao.setPaciente(paciente);
@@ -72,14 +74,6 @@ public class CadastroPaciente {
         frame.pack();
         frame.setVisible(true);
         return frame;
-    }
-
-    public static void main(String[] args) {
-        JFrame frame = new JFrame("CadastroPaciente");
-        frame.setContentPane(new CadastroPaciente().CadastroPaciente);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.pack();
-        frame.setVisible(true);
     }
 
     private JFrame getMainFrame()

@@ -20,16 +20,17 @@ public class PacienteDao {
         ResultSet rs = null;
         int idMax = 0;
         String sql = "insert into paciente"+
-                "(nome, telefone, idEndereco, idDiagnostico)"+
-                "values(?, ?, ?, ?)";
+                "(nome, cpf, telefone, idEndereco, idDiagnostico)"+
+                "values(?, ?, ?, ?, ?)";
 
         try {
             PreparedStatement stmt = connection.prepareStatement(sql);
 
             stmt.setString(1, paciente.getNome());
-            stmt.setString(2, paciente.getTelefone());
-            stmt.setString(3, paciente.getEndereço());
-            stmt.setString(4, paciente.getDiagnostico());
+            stmt.setString(2, paciente.getCpf());
+            stmt.setString(3, paciente.getTelefone());
+            stmt.setString(4, paciente.getEndereço());
+            stmt.setString(5, paciente.getDiagnostico());
 
             stmt.execute();
             stmt.close();

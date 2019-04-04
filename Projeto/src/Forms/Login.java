@@ -33,7 +33,7 @@ public class Login {
                     this.getMainFrame().dispose();
                 }
             }else if(prefixo == "AT"){
-                if(login.efetuarLogin("atendente", id, senha)) {
+                if(login.efetuarLogin("funcionario", id, senha)) {
                     CadastroPaciente cadPaciente = new CadastroPaciente();
                     cadPaciente.montarFrame();
                     this.getMainFrame().dispose();
