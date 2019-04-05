@@ -26,7 +26,7 @@ public class CadastroPaciente {
     private JTextField numero;
     private JTextField bloco;
     private JTextField cpf;
-    private JTextField mesField;
+    private JTextField mes;
     private JTextField ano;
 
     Calendar cale =  Calendar.getInstance();
@@ -39,8 +39,8 @@ public class CadastroPaciente {
         cadastrarButton.addActionListener(e -> {
 
             cale.set(Calendar.DAY_OF_MONTH, Integer.parseInt(dia.getText()));
-            int mes = Integer.parseInt(mesField.getText())-1;
-            cale.set(Calendar.MONTH, mes);
+            int mes1 = Integer.parseInt(mes.getText())-1;
+            cale.set(Calendar.MONTH, mes1);
             cale.set(Calendar.YEAR, Integer.parseInt(ano.getText()));
 
             Diagnostico diagnostico = new Diagnostico();
