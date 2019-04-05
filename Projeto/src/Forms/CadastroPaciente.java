@@ -6,15 +6,14 @@ import ClassesDao.PacienteDao;
 import JavaBeans.Diagnostico;
 import JavaBeans.Endereco;
 import JavaBeans.Paciente;
+import java.util.Calendar;
 
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class CadastroPaciente {
     private JPanel CadastroPaciente;
     private JTextField nome;
-    private JFormattedTextField dataNascimeto;
+    private JFormattedTextField dia;
     private JFormattedTextField telefone;
     private JTextField estado;
     private JTextArea sintomas;
@@ -27,9 +26,10 @@ public class CadastroPaciente {
     private JTextField numero;
     private JTextField bloco;
     private JTextField cpf;
-    private JTextField textField1;
-    private JTextField textField2;
+    private JTextField mesField;
+    private JTextField ano;
 
+    Calendar cale =  Calendar.getInstance();
     public CadastroPaciente() {
         sairButton.addActionListener(e -> {
             this.getMainFrame().dispose();
@@ -37,6 +37,11 @@ public class CadastroPaciente {
             login.montarFrame();
         });
         cadastrarButton.addActionListener(e -> {
+
+            cale.set(Calendar.DAY_OF_MONTH, Integer.parseInt(dia.getText()));
+            int mes = Integer.parseInt(mesField.getText())-1;
+            cale.set(Calendar.MONTH, mes);
+            cale.set(Calendar.YEAR, Integer.parseInt(ano.getText()));
 
             Diagnostico diagnostico = new Diagnostico();
             DiagnosticoDao diagDao = new DiagnosticoDao();
@@ -59,6 +64,7 @@ public class CadastroPaciente {
             paciente.setNome(nome.getText());
             paciente.setTelefone(telefone.getText());
             paciente.setCpf(cpf.getText());
+            paciente.setDataNascimento(cale);
             paciente.setEndereço(endereco.getId());
             paciente.setDiagnostico(diagnostico.getId());
             pacienteDao.setPaciente(paciente);

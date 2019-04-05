@@ -3,11 +3,9 @@ package ClassesDao;
 import JavaBeans.Diagnostico;
 import JavaBeans.Paciente;
 import conexao.ConnectionFactory;
+
+import java.sql.*;
 import java.util.Calendar;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 
 public class PacienteDao {
     private Connection connection;
@@ -18,8 +16,8 @@ public class PacienteDao {
 
     public void setPaciente(Paciente paciente){
         String sql = "insert into paciente"+
-                "(nome, cpf, telefone, idEndereco, idDiagnostico)"+
-                "values(?, ?, ?, ?, ?)";
+                "(nome, cpf, telefone, dataNascimento, idEndereco, idDiagnostico)"+
+                "values(?, ?, ?, ?, ?, ?)";
 
         try {
             PreparedStatement stmt = connection.prepareStatement(sql);
@@ -27,8 +25,9 @@ public class PacienteDao {
             stmt.setString(1, paciente.getNome());
             stmt.setString(2, paciente.getCpf());
             stmt.setString(3, paciente.getTelefone());
-            stmt.setString(4, paciente.getEndereço());
-            stmt.setString(5, paciente.getDiagnostico());
+            stmt.setDate(4, new Date(paciente.getDataNascimento().getTimeInMillis()));
+            stmt.setString(5, paciente.getEndereço());
+            stmt.setString(6, paciente.getDiagnostico());
 
             stmt.execute();
             stmt.close();
