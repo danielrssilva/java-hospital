@@ -74,7 +74,7 @@ CREATE TABLE `funcionario` (
   `senha` varchar(30) NOT NULL,
   `nome` varchar(60) NOT NULL,
   `cpf` varchar(14) NOT NULL,
-  `dataNascimento` date,
+  `dataNascimento` date NOT NULL,
   `cargo` varchar(30) NOT NULL,
   `horaInicio` time NOT NULL,
   `horaFim` time NOT NULL
