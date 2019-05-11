@@ -8,4 +8,7 @@ no lado esquerdo Libries >
 
 click no + ao lado do menu em que esta Libraries > 
 
+> Selecione Java
+
 selecione o arquivo da biblioteca
+
