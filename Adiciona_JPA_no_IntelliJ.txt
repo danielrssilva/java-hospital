@@ -1,0 +1,11 @@
+Para adicionar a JPA:
+
+File >
+ 
+Project Structure > 
+
+no lado esquerdo Libries > 
+
+click no + ao lado do menu em que esta Libraries > 
+
+selecione o arquivo da biblioteca
