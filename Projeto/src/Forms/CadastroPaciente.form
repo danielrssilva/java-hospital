@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="Forms.CadastroPaciente">
-  <grid id="27dc6" binding="CadastroPaciente" layout-manager="GridLayoutManager" row-count="3" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+  <grid id="27dc6" binding="CadastroPaciente" layout-manager="GridLayoutManager" row-count="3" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="50" left="50" bottom="50" right="50"/>
     <constraints>
-      <xy x="20" y="20" width="792" height="817"/>
+      <xy x="20" y="20" width="792" height="847"/>
     </constraints>
     <properties>
       <background color="-1"/>
@@ -304,7 +304,7 @@
           </component>
           <component id="79a8a" class="javax.swing.JLabel">
             <constraints>
-              <grid row="18" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="18" column="1" row-span="1" col-span="5" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <font name="DejaVu Sans Mono" size="18" style="1"/>
@@ -314,7 +314,7 @@
           </component>
           <component id="28400" class="javax.swing.JButton" binding="cadastrarButton" default-binding="true">
             <constraints>
-              <grid row="20" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+              <grid row="20" column="4" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <text value="Cadastrar"/>
@@ -322,7 +322,7 @@
           </component>
           <component id="5da48" class="javax.swing.JButton" binding="sairButton" default-binding="true">
             <constraints>
-              <grid row="20" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+              <grid row="20" column="1" row-span="1" col-span="3" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <text value="Sair"/>
@@ -336,6 +336,7 @@
         </constraints>
         <properties>
           <font name="DejaVu Sans Mono" size="24" style="1"/>
+          <foreground color="-14119493"/>
           <text value="CADASTRAR PACIENTE"/>
         </properties>
       </component>
@@ -346,6 +347,12 @@
           </grid>
         </constraints>
       </vspacer>
+      <component id="9b0a1" class="javax.swing.JScrollBar" binding="scrollBar1" default-binding="true">
+        <constraints>
+          <grid row="0" column="1" row-span="3" col-span="1" vsize-policy="6" hsize-policy="0" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties/>
+      </component>
     </children>
   </grid>
 </form>

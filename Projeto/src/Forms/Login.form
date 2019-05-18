@@ -7,8 +7,8 @@
     </constraints>
     <properties>
       <autoscrolls value="false"/>
-      <background color="-1"/>
-      <foreground color="-12828863"/>
+      <background color="-14119493"/>
+      <foreground color="-14119493"/>
       <name value="Login"/>
     </properties>
     <border type="none"/>
@@ -28,7 +28,7 @@
         </constraints>
         <properties>
           <background color="-1"/>
-          <foreground color="-12828863"/>
+          <foreground color="-1"/>
           <text value="Matricula:"/>
         </properties>
       </component>
@@ -58,7 +58,7 @@
         </constraints>
         <properties>
           <background color="-1"/>
-          <foreground color="-12828863"/>
+          <foreground color="-1"/>
           <text value="Senha:"/>
         </properties>
       </component>
@@ -80,6 +80,7 @@
         </constraints>
         <properties>
           <font name="DejaVu Sans Mono" size="24" style="1"/>
+          <foreground color="-1"/>
           <text value="LOGIN"/>
         </properties>
       </component>
