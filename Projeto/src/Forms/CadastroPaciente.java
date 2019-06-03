@@ -28,7 +28,6 @@ public class CadastroPaciente {
     private JTextField cpf;
     private JTextField mesField;
     private JTextField ano;
-    private JScrollBar scrollBar1;
 
     Calendar cale =  Calendar.getInstance();
     public CadastroPaciente() {
