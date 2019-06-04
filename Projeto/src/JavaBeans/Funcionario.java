@@ -11,6 +11,7 @@ public class Funcionario {
     private String cargo;
     private String horaInicioTrab;
     private String horaFinalTrab;
+    private String endereco;
 
     public String getMatricula() {
         return matricula;
@@ -62,5 +63,13 @@ public class Funcionario {
     }
     public void setHoraFinalTrab(String horaFinalTrab) {
         this.horaFinalTrab = horaFinalTrab;
+    }
+
+    public String getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
     }
 }
