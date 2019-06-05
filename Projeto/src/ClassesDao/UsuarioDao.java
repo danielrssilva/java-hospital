@@ -34,6 +34,8 @@ public class UsuarioDao {
                 }
                 else if(rs.getString("prefixo").equals("AT")){
                     check = 3;
+                }else if(rs.getString("prefixo").equals("AD")){
+                    check = 4;
                 }
             }
 

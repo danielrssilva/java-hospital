@@ -16,9 +16,9 @@ public class FuncionarioDao {
     public void adiciona(Funcionario funcionario) {
         ResultSet rs = null;
         int idMax = 0;
-        String sql = "insert into medico" +
-                "(matricula, senha, nome, cpf, data_nascimento, cargo, hora_inicio, hora_fim)" +
-                "values( ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String sql = "insert into funcionario" +
+                "(matricula, senha, nome, cpf, datanascimento, cargo, horaInicio, horaFim)" +
+                "values( ?, ?, ?, ?, ?, ?, ?, ?)";
         //String consultaIdMax = "select max(idEndereco) as id from endereco";
         try {
             PreparedStatement stmt = connection.prepareStatement(sql);
