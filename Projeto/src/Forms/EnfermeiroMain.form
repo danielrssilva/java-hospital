@@ -26,7 +26,7 @@
           <text value="Sair"/>
         </properties>
       </component>
-      <component id="1c4a0" class="javax.swing.JLabel" binding="username">
+      <component id="1c4a0" class="javax.swing.JLabel">
         <constraints>
           <grid row="0" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>

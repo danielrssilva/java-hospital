@@ -1,7 +1,9 @@
 package Forms;
 
 import ClassesDao.DiagnosticoDao;
+import ClassesDao.PacienteDao;
 import JavaBeans.Diagnostico;
+import JavaBeans.Paciente;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -13,8 +15,15 @@ public class EnfermeiroDiagnostico {
     private JTextArea sintomas;
     private JButton confirmarButton;
     private JButton cancelarButton;
+    private JLabel nomePaciente;
 
     public EnfermeiroDiagnostico() {
+        Paciente paciente = new Paciente();
+        PacienteDao pacienteDao = new PacienteDao();
+        paciente = pacienteDao.selectPaciente();
+        nomePaciente.setText(paciente.getNome());
+        sintomas.setText(paciente.getDiagnostico());
+        especialidade.setText(paciente.getStatus());
         cancelarButton.addActionListener(e -> {
             this.getMainFrame().dispose();
             EnfermeiroMain enfermeiroMain = new EnfermeiroMain();
@@ -22,9 +31,11 @@ public class EnfermeiroDiagnostico {
         });
         confirmarButton.addActionListener(e -> {
 
+
+            /*
             this.getMainFrame().dispose();
             EnfermeiroMain enfermeiroMain = new EnfermeiroMain();
-            enfermeiroMain.montarFrame();
+            enfermeiroMain.montarFrame();*/
         });
     }
 

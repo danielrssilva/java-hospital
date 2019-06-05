@@ -10,6 +10,7 @@ public class Paciente {
     private String telefone;
     private String celular;
     private String diagnostico;
+    private String status;
     private String cpf;
 
     public String getCpf() {
@@ -66,5 +67,13 @@ public class Paciente {
     }
     public String getDiagnostico() {
         return diagnostico;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }

@@ -1,5 +1,7 @@
 package Forms;
 
+import JavaBeans.Paciente;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -8,9 +10,9 @@ public class EnfermeiroMain {
     private JButton diagnosticarPacienteButton;
     private JButton sairButton;
     private JPanel EnfermeiroMainPanel;
-    private JLabel username;
 
     public EnfermeiroMain() {
+
         sairButton.addActionListener(e -> {
             this.getMainFrame().dispose();
             Login login = new Login();
