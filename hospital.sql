@@ -100,7 +100,7 @@ CREATE TABLE `medico` (
 
 CREATE TABLE `paciente` (
   `idPaciente` int(11) NOT NULL,
-  `nome` int(11) NOT NULL,
+  `nome` VARCHAR(80) NOT NULL,
   `cpf` varchar(14) NOT NULL,
   `telefone` int(11) NOT NULL,
   `dataNascimento` int(14),
