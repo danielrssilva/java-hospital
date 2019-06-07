@@ -1,11 +1,13 @@
 package ClassesDao;
 
 import JavaBeans.Medico;
+import JavaBeans.Tabela_Paciente_Diagnostico;
 import conexao.ConnectionFactory;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.sql.*;
+import java.util.ArrayList;
 
 public class MedicoDao {
     private Connection connection;
@@ -39,25 +41,30 @@ public class MedicoDao {
             throw new RuntimeException(e);
         }
     }
-    public JTable montarTabela(JTable table){
-        DefaultTableModel modelo = (DefaultTableModel) table.getModel();
-        modelo.setNumRows(0);
+    public ArrayList<Tabela_Paciente_Diagnostico> montarTabela(){
+
+
         String select = "SELECT nome, descricao AS sintomas FROM paciente, diagnostico WHERE paciente.idDiagnostico = diagnostico.idDiagnostico";
-        Object dados[] = new Object[2];
         ResultSet rs = null;
+
+        ArrayList <Tabela_Paciente_Diagnostico> tpdArray = new ArrayList();
+
         try{
             PreparedStatement stmt = connection.prepareStatement(select);
             rs = stmt.executeQuery();
+
             while (rs.next()) {
-                dados[0] = rs.getString("nome");
-                dados[1] = rs.getString("sintomas");
-                modelo.addRow(dados);
-                return table;
+                Tabela_Paciente_Diagnostico tpd = new Tabela_Paciente_Diagnostico();
+
+                tpd.setNome(rs.getString("nome"));
+                tpd.setSintoma(rs.getString("sintomas"));
+
+                tpdArray.add(tpd);
             }
         }catch(SQLException e){
             System.out.println("Erro! Cheque suas credenciais");
             throw new RuntimeException(e);
         }
-        return table;
+        return tpdArray;
     }
 }

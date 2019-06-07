@@ -16,16 +16,11 @@
           <text value="Button"/>
         </properties>
       </component>
-      <component id="3226e" class="javax.swing.JTable" binding="table1" default-binding="true">
+      <vspacer id="5b28b">
         <constraints>
-          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
-            <preferred-size width="150" height="50"/>
-          </grid>
+          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
         </constraints>
-        <properties>
-          <autoCreateRowSorter value="false"/>
-        </properties>
-      </component>
+      </vspacer>
     </children>
   </grid>
 </form>

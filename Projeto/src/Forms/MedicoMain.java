@@ -1,42 +1,52 @@
 package Forms;
 
 import ClassesDao.MedicoDao;
-import JavaBeans.Medico;
+import JavaBeans.Tabela_Paciente_Diagnostico;
 
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import javax.swing.table.DefaultTableModel;
 
-public class MedicoMain {
-    private JPanel MedicoMain;
-    private JTable table1;
-    private JButton button1;
+public class MedicoMain extends javax.swing.JPanel {
 
-    public MedicoMain() {
-        button1.addActionListener(e -> {
-            MedicoDao mDao = new MedicoDao();
-            setTable1(mDao.montarTabela(table1));
-        });
+    public MedicoMain () {
+
     }
 
     public void montarFrame(){
+        MedicoDao mDao = new MedicoDao();
         JFrame frame = new JFrame("Pacientes:");
-        frame.setContentPane(new MedicoMain().MedicoMain);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+       // JTable table = createTable();
+        JTable table = createTable();
+        JScrollPane scrollPane = new JScrollPane(table);
+        frame.getContentPane().add(scrollPane);
         frame.pack();
         frame.setVisible(true);
     }
 
-    public void setTable1(JTable table1) {
-        this.table1 = table1;
-    }
 
-    public JTable getTable1() {
-        return table1;
-    }
 
-    private JFrame getMainFrame()
+    public static JTable createTable()
     {
-        return (JFrame) SwingUtilities.getWindowAncestor( this.MedicoMain);
+        MedicoDao md = new MedicoDao();
+
+        DefaultTableModel model = new DefaultTableModel();
+        JTable table = new JTable(model);
+
+        model.addColumn("Paciente");
+        model.addColumn("Sintomas");
+
+        for(Tabela_Paciente_Diagnostico tpd : md.montarTabela()){
+            model.addRow(new Object[]{
+                    tpd.getNome(),
+                    tpd.getSintoma()
+            });
+        }
+
+        table.setFillsViewportHeight(true);
+
+        return table;
     }
+
+
 }
