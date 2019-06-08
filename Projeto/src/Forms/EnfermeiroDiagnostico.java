@@ -3,6 +3,7 @@ package Forms;
 import ClassesDao.DiagnosticoDao;
 import ClassesDao.PacienteDao;
 import JavaBeans.Diagnostico;
+import JavaBeans.DiagnosticoPaciente;
 import JavaBeans.Paciente;
 
 import javax.swing.*;
@@ -18,24 +19,26 @@ public class EnfermeiroDiagnostico {
     private JLabel nomePaciente;
 
     public EnfermeiroDiagnostico() {
-        Paciente paciente = new Paciente();
-        PacienteDao pacienteDao = new PacienteDao();
-        paciente = pacienteDao.selectPaciente();
-        nomePaciente.setText(paciente.getNome());
-        sintomas.setText(paciente.getDiagnostico());
-        especialidade.setText(paciente.getStatus());
-        cancelarButton.addActionListener(e -> {
+        DiagnosticoPaciente diagnosticoPaciente = new DiagnosticoPaciente();
+        DiagnosticoDao diagnosticoDao = new DiagnosticoDao();
+        diagnosticoPaciente = diagnosticoDao.selectDiagnostico(1);
+        nomePaciente.setText(diagnosticoPaciente.getNome());
+        sintomas.setText(diagnosticoPaciente.getDescricao());
+        especialidade.setText(diagnosticoPaciente.getEspecialidade());
+        DiagnosticoPaciente finalDiagnosticoPaciente = diagnosticoPaciente;
+        confirmarButton.addActionListener(e -> {
+            finalDiagnosticoPaciente.setEspecialidade(especialidade.getText());
+            finalDiagnosticoPaciente.setDescricao(sintomas.getText());
+            finalDiagnosticoPaciente.setStatus(2);
+            diagnosticoDao.updateDiagnostico(finalDiagnosticoPaciente);
             this.getMainFrame().dispose();
             EnfermeiroMain enfermeiroMain = new EnfermeiroMain();
             enfermeiroMain.montarFrame();
         });
-        confirmarButton.addActionListener(e -> {
-
-
-            /*
+        cancelarButton.addActionListener(e -> {
             this.getMainFrame().dispose();
             EnfermeiroMain enfermeiroMain = new EnfermeiroMain();
-            enfermeiroMain.montarFrame();*/
+            enfermeiroMain.montarFrame();
         });
     }
 

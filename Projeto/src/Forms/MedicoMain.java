@@ -1,21 +1,37 @@
 package Forms;
 
-import ClassesDao.MedicoDao;
-import JavaBeans.Medico;
+import ClassesDao.DiagnosticoDao;
+import JavaBeans.DiagnosticoPaciente;
 
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class MedicoMain {
     private JPanel MedicoMain;
-    private JTable table1;
-    private JButton button1;
+    private JLabel nomePaciente;
+    private JTextField especialidade;
+    private JTextArea sintomas;
+    private JButton confirmarButton;
+    private JButton sairButton;
 
     public MedicoMain() {
-        button1.addActionListener(e -> {
-            MedicoDao mDao = new MedicoDao();
-            setTable1(mDao.montarTabela(table1));
+        DiagnosticoPaciente diagnosticoPaciente = new DiagnosticoPaciente();
+        DiagnosticoDao diagnosticoDao = new DiagnosticoDao();
+        diagnosticoPaciente = diagnosticoDao.selectDiagnostico(2);
+        nomePaciente.setText(diagnosticoPaciente.getNome());
+        sintomas.setText(diagnosticoPaciente.getDescricao());
+        especialidade.setText(diagnosticoPaciente.getEspecialidade());
+        DiagnosticoPaciente finalDiagnosticoPaciente = diagnosticoPaciente;
+        confirmarButton.addActionListener(e -> {
+            finalDiagnosticoPaciente.setStatus(3);
+            diagnosticoDao.updateDiagnostico(finalDiagnosticoPaciente);
+            this.getMainFrame().dispose();
+            MedicoMain medicoMain = new MedicoMain();
+            medicoMain.montarFrame();
+        });
+        sairButton.addActionListener(e -> {
+            this.getMainFrame().dispose();
+            Login login = new Login();
+            login.montarFrame();
         });
     }
 
@@ -25,14 +41,6 @@ public class MedicoMain {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
-    }
-
-    public void setTable1(JTable table1) {
-        this.table1 = table1;
-    }
-
-    public JTable getTable1() {
-        return table1;
     }
 
     private JFrame getMainFrame()

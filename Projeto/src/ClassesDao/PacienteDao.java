@@ -27,34 +27,10 @@ public class PacienteDao {
             stmt.setDate(4, new Date(paciente.getDataNascimento().getTimeInMillis()));
             stmt.setString(5, paciente.getEndereço());
             stmt.setString(6, paciente.getDiagnostico());
-            stmt.setString(7, "2");//Coloca paciente em status de aguardando triagem
+            stmt.setString(7, "1");//Coloca paciente em status de aguardando triagem
 
             stmt.execute();
             stmt.close();
-
-        }catch (SQLException e){
-            throw new RuntimeException(e);
-        }
-    }
-    public Paciente selectPaciente(){
-        Paciente paciente = new Paciente();
-        Diagnostico diagnostico = new Diagnostico();
-        ResultSet rs = null;
-        String sql = "SELECT nome, diagnostico.idDiagnostico AS id, diagnostico.descricao AS sintomas, especialidade " +
-                     "FROM paciente, diagnostico, status " +
-                     "WHERE paciente.idDiagnostico = diagnostico.idDiagnostico AND status.id = paciente.status  AND paciente.status = 2  limit 1";
-        try {
-            PreparedStatement stmt = connection.prepareStatement(sql);
-            rs = stmt.executeQuery(sql);
-            while (rs.next()){
-                paciente.setNome(rs.getString(1));
-                diagnostico.setId(rs.getString(2));
-                diagnostico.setDescricao(rs.getString(3));
-                diagnostico.setEspecialidade(rs.getString(4));
-            }
-            stmt.execute();
-            stmt.close();
-            return paciente;
 
         }catch (SQLException e){
             throw new RuntimeException(e);
